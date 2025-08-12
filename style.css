@@ -1,4 +1,4 @@
-:root {
+      :root {
             --primary: #0066FF;
             --primary-light: #E6F0FF;
             --success: #00C853;
@@ -37,16 +37,19 @@
             background: var(--white);
             position: relative;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
         }
         
         /* Header Styles */
         .app-header {
-            padding: 2rem 1.5rem 1.5rem;
+            padding: 1.5rem 1rem;
             text-align: center;
             background: linear-gradient(135deg, var(--primary), #0052D9);
             color: var(--white);
             position: relative;
             overflow: hidden;
+            flex-shrink: 0;
         }
         
         .app-header::before {
@@ -63,17 +66,17 @@
         .logo-container {
             display: flex;
             justify-content: center;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
         }
         
         .logo {
-            width: 250px;
-            height: 250px;
+            width: 150px;
+            height: 150px;
             object-fit: contain;
         }
         
         .header-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--white);
             text-transform: uppercase;
@@ -83,18 +86,21 @@
         }
         
         .subtitle {
-            font-size: 1rem;
+            font-size: 0.9rem;
             opacity: 0.9;
             font-weight: 400;
             position: relative;
         }
         
         .app-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 1rem;
-            padding-bottom: 2rem;
+            padding-bottom: 5rem; /* Extra padding for mobile */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         
         /* Button Styles */
@@ -102,11 +108,11 @@
             display: block;
             width: 100%;
             max-width: 500px;
-            padding: 1rem;
+            padding: 0.9rem;
             border-radius: 12px;
             border: none;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -147,7 +153,10 @@
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            padding: 1.5rem;
+            padding: 1rem;
+            padding-bottom: 5rem; /* Extra padding for mobile */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         
         .monitoring-content {
@@ -155,11 +164,12 @@
             flex-direction: column;
             align-items: center;
             flex-grow: 1;
+            width: 100%;
         }
         
         .charging-status {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -168,9 +178,9 @@
         }
         
         .battery-container {
-            width: 220px;
-            height: 320px;
-            margin: 0 auto 1.5rem;
+            width: 150px;
+            height: 220px;
+            margin: 0 auto 1rem;
             position: relative;
         }
         
@@ -178,8 +188,8 @@
             width: 100%;
             height: 100%;
             background-color: var(--light-gray);
-            border-radius: 20px;
-            padding: 12px;
+            border-radius: 12px;
+            padding: 8px;
             position: relative;
             overflow: hidden;
         }
@@ -187,22 +197,22 @@
         .battery::after {
             content: "";
             position: absolute;
-            top: -12px;
+            top: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 40px;
-            height: 14px;
+            width: 30px;
+            height: 10px;
             background-color: var(--light-gray);
             border-radius: 4px 4px 0 0;
         }
         
         .battery-level {
             position: absolute;
-            bottom: 12px;
-            left: 12px;
-            right: 12px;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
             background: linear-gradient(to top, var(--success), #7CFFB3);
-            border-radius: 12px;
+            border-radius: 8px;
             height: 0%;
             transition: height 0.5s ease;
         }
@@ -212,54 +222,54 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--dark);
         }
         
         .charging-time {
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             color: var(--gray);
             margin-top: 0.5rem;
         }
         
         .status-badge {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             background-color: var(--warning);
             color: var(--white);
             border-radius: 20px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         
         /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
             width: 100%;
-            max-width: 800px;
+            max-width: 500px;
         }
         
         .stat-card {
             background-color: var(--white);
-            border-radius: 16px;
-            padding: 1.2rem;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         
         .stat-value {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
         
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--gray);
             font-weight: 500;
             text-transform: uppercase;
@@ -271,7 +281,9 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
+            margin-top: auto;
+            padding-bottom: 2rem;
         }
         
         /* Animations */
@@ -294,48 +306,23 @@
         }
         
         /* Responsive Adjustments */
-        @media (max-width: 1024px) {
-            .logo {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .header-title {
-                font-size: 1.8rem;
-            }
-            
-            .battery-container {
-                width: 200px;
-                height: 300px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .btn {
-                font-size: 1.3rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .logo {
                 width: 180px;
                 height: 180px;
             }
             
             .header-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             
             .subtitle {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             
             .btn {
                 font-size: 1.2rem;
-                padding: 0.9rem;
-                max-width: 400px;
+                padding: 1rem;
             }
             
             .battery-container {
@@ -343,66 +330,64 @@
                 height: 280px;
             }
             
-            .stat-value {
-                font-size: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .app-header {
-                padding: 1.5rem 1rem 1rem;
+            .battery {
+                border-radius: 16px;
+                padding: 12px;
             }
             
-            .logo {
-                width: 150px;
-                height: 150px;
+            .battery::after {
+                width: 40px;
+                height: 14px;
+                top: -12px;
             }
             
-            .header-title {
-                font-size: 1.4rem;
-            }
-            
-            .subtitle {
-                font-size: 0.8rem;
-            }
-            
-            .app-content {
-                padding: 1rem;
-            }
-            
-            .battery-container {
-                width: 150px;
-                height: 240px;
+            .battery-level {
+                bottom: 12px;
+                left: 12px;
+                right: 12px;
+                border-radius: 12px;
             }
             
             .battery-percent {
-                font-size: 1.8rem;
-            }
-            
-            .charging-time {
-                font-size: 1rem;
+                font-size: 2rem;
             }
             
             .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                margin-bottom: 1.5rem;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+                max-width: 800px;
             }
             
             .stat-card {
-                padding: 1rem;
+                padding: 1.2rem;
+                border-radius: 16px;
             }
             
             .stat-value {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             .stat-label {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .logo {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .header-title {
+                font-size: 2rem;
+            }
+            
+            .battery-container {
+                width: 200px;
+                height: 300px;
             }
             
             .btn {
-                font-size: 1.1rem;
-                max-width: 300px;
+                font-size: 1.3rem;
             }
         }
