@@ -33,3 +33,40 @@ document.getElementById('start-btn').addEventListener('click', function() {
                 document.getElementById('welcome-screen').classList.remove('hidden');
             });
         });
+
+  // Masukkan kode konfigurasi Firebase Anda di sini
+        // Contoh: const firebaseConfig = { ... };
+        const firebaseConfig = {
+            /* GANTI DENGAN KODE KONFIGURASI FIREBASE ANDA */
+        };
+
+        // Inisialisasi Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        // Dapatkan referensi ke database
+        const database = firebase.database();
+        const dataRef = database.ref('Data');
+
+        // Referensi elemen HTML
+        const voltageElement = document.getElementById('voltage');
+        const currentElement = document.getElementById('current');
+        const powerElement = document.getElementById('power');
+        const energyElement = document.getElementById('total-energy');
+
+        // Dengarkan perubahan data
+        dataRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                // Perbarui teks pada elemen HTML
+                voltageElement.textContent = data.Voltage.toFixed(2);
+                currentElement.textContent = data.Current.toFixed(2);
+                powerElement.textContent = data.Power.toFixed(2);
+                energyElement.textContent = data.TotalEnergy.toFixed(2);
+            } else {
+                voltageElement.textContent = "Tidak ada data";
+                currentElement.textContent = "Tidak ada data";
+                powerElement.textContent = "Tidak ada data";
+                energyElement.textContent = "Tidak ada data";
+            }
+        });
+
