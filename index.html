@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <div class="charging-app">
-        <!-- Welcome Screen -->
+    <div class="charging-app">
         <div id="welcome-screen">
             <div class="app-header">
                 <h1 class="header-title">GREEN MOBILITY</h1>
@@ -25,36 +24,35 @@
             </div>
         </div>
         
-        <!-- Full-screen Monitoring Screen -->
-        <div id="status-screen" class="hidden monitoring-screen">
+        <div id="status-screen" class="monitoring-screen" style="display: none;">
             <div class="monitoring-content">
                 <div class="charging-status animate-in">
                     <div class="battery-container">
                         <div class="battery">
                             <div class="battery-level" id="battery-level"></div>
-                            <div class="battery-percent" id="battery-percent">0%</div>
+                            <div class="battery-percent" id="soc-percent">0%</div>
                         </div>
                     </div>
-                    <div class="status-badge">Full Load</div>
-                    <p class="charging-time" id="charging-time">Calculating remaining time...</p>
+                    <div class="status-badge" id="status-badge">Memuat...</div>
+                    <p class="charging-time" id="charging-time">Menghitung sisa waktu...</p>
                 </div>
                 
                 <div class="stats-grid">
                     <div class="stat-card animate-in" style="animation-delay: 0.1s">
-                        <div class="stat-value" id="voltage-value">220V</div>
-                        <div class="stat-label">Voltage</div>
+                        <div class="stat-value" id="voltage-value">0V</div>
+                        <div class="stat-label">Tegangan</div>
                     </div>
                     <div class="stat-card animate-in" style="animation-delay: 0.2s">
-                        <div class="stat-value" id="current-value">900A</div>
-                        <div class="stat-label">Current</div>
+                        <div class="stat-value" id="current-value">0A</div>
+                        <div class="stat-label">Arus</div>
                     </div>
                     <div class="stat-card animate-in" style="animation-delay: 0.3s">
-                        <div class="stat-value" id="power-value">500W</div>
-                        <div class="stat-label">Power</div>
+                        <div class="stat-value" id="power-value">0W</div>
+                        <div class="stat-label">Daya</div>
                     </div>
                     <div class="stat-card animate-in" style="animation-delay: 0.4s">
-                        <div class="stat-value" id="energy-value">1.0kWh</div>
-                        <div class="stat-label">Energy Delivered</div>
+                        <div class="stat-value" id="energy-value">0kWh</div>
+                        <div class="stat-label">Energi Tersalurkan</div>
                     </div>
                 </div>
                 
@@ -65,7 +63,8 @@
         </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
