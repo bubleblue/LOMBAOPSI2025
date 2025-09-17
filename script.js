@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         firebase.initializeApp(firebaseConfig);
     } catch (error) {
         console.error("Firebase Initialization Error:", error);
-        return; // Hentikan eksekusi jika ada kesalahan
     }
     
     // Dapatkan referensi ke database
@@ -28,27 +27,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const welcomeScreen = document.getElementById('welcome-screen');
     const monitoringScreen = document.getElementById('status-screen');
 
-    // Fungsi untuk mengaktifkan pemantauan
-    if (startBtn && welcomeScreen && monitoringScreen) {
-        startBtn.addEventListener('click', function() {
+    // Fungsi untuk mengaktifkan pemantauan saat tombol "Start" diklik
+    startBtn.addEventListener('click', function() {
+        if (welcomeScreen && monitoringScreen) {
             welcomeScreen.style.display = 'none';
             monitoringScreen.style.display = 'block';
-        });
-    } else {
-        console.error("Salah satu elemen penting tidak ditemukan. Periksa ID HTML.");
-    }
+        } else {
+            console.error("Salah satu elemen screen tidak ditemukan.");
+        }
+    });
 
-    // Fungsi untuk menghentikan pemantauan
+    // Fungsi untuk menghentikan pemantauan saat tombol "Stop" diklik
     stopBtn.addEventListener('click', function() {
-        welcomeScreen.style.display = 'block';
-        monitoringScreen.style.display = 'none';
+        if (welcomeScreen && monitoringScreen) {
+            welcomeScreen.style.display = 'block';
+            monitoringScreen.style.display = 'none';
+        } else {
+            console.error("Salah satu elemen screen tidak ditemukan.");
+        }
     });
 
     // Dengarkan perubahan data dari Firebase
     dataRef.on('value', (snapshot) => {
         const data = snapshot.val();
+        // Memperbarui nilai pada elemen HTML hanya jika data ada
         if (data) {
-            // Memperbarui nilai pada elemen HTML
             const batteryLevelElement = document.getElementById('battery-level');
             const socPercent = document.getElementById('soc-percent');
             const statusBadge = document.getElementById('status-badge');
@@ -58,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const energyValue = document.getElementById('energy-value');
             const chargingTime = document.getElementById('charging-time');
 
-            // Pastikan elemen ditemukan sebelum diperbarui
             if (batteryLevelElement && socPercent && statusBadge && voltageValue && currentValue && powerValue && energyValue && chargingTime) {
                 // Update battery level
                 if (data.SoC !== undefined) {
