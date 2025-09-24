@@ -1,70 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Green Mobility Charging</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="charging-app">
-        <div id="welcome-screen">
+        <div id="welcome-screen" class="screen active">
             <div class="app-header">
                 <h1 class="header-title">GREEN MOBILITY</h1>
                 <p class="subtitle">Fast and eco-friendly charging</p>
             </div>
             <div class="app-content">
                 <div class="logo-container">
-                    <img src="logo.png" alt="Green Mobility Logo" class="logo">
+                    <img src="https://placehold.co/150x150/ffffff/007bff?text=Logo" alt="Green Mobility Logo" class="logo">
                 </div>
                 <div class="button-container">
-                    <button id="start-btn" class="btn btn-primary animate-in">Start Charging</button>
+                    <button id="start-btn" class="btn btn-primary">Start Charging</button>
                 </div>
             </div>
         </div>
         
-        <div id="status-screen" class="monitoring-screen" style="display: none;">
+        <div id="status-screen" class="screen">
             <div class="monitoring-content">
-                <div class="charging-status animate-in">
+                <div class="charging-status">
                     <div class="battery-container">
-                        <div class="battery">
-                            <div class="battery-level" id="battery-level"></div>
-                            <div class="battery-percent" id="soc-percent">0%</div>
-                        </div>
+                        <div class="battery-level" id="battery-level"></div>
+                        <div class="battery-percent" id="soc-percent">0%</div>
                     </div>
                     <div class="status-badge" id="status-badge">Memuat...</div>
                     <p class="charging-time" id="charging-time">Menghitung sisa waktu...</p>
                 </div>
                 
                 <div class="stats-grid">
-                    <div class="stat-card animate-in" style="animation-delay: 0.1s">
+                    <div class="stat-card">
                         <div class="stat-value" id="voltage-value">0V</div>
                         <div class="stat-label">Tegangan</div>
                     </div>
-                    <div class="stat-card animate-in" style="animation-delay: 0.2s">
+                    <div class="stat-card">
                         <div class="stat-value" id="current-value">0A</div>
                         <div class="stat-label">Arus</div>
                     </div>
-                    <div class="stat-card animate-in" style="animation-delay: 0.3s">
+                    <div class="stat-card">
                         <div class="stat-value" id="power-value">0W</div>
                         <div class="stat-label">Daya</div>
                     </div>
-                    <div class="stat-card animate-in" style="animation-delay: 0.4s">
+                    <div class="stat-card">
                         <div class="stat-value" id="energy-value">0kWh</div>
                         <div class="stat-label">Energi Tersalurkan</div>
                     </div>
                 </div>
                 
                 <div class="button-container">
-                    <button id="stop-btn" class="btn btn-danger animate-in" style="animation-delay: 0.5s">Stop Charging</button>
+                    <button id="stop-btn" class="btn btn-danger">Stop Charging</button>
                 </div>
             </div>
         </div>
     </div>
-
+</body>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="script.js"></script>
-</body>
 </html>
